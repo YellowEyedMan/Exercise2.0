@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EA2.0</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="notifications-link">
+        <img
+          class="png-logo"
+          src="Images/png images/free-notifications-bell-outline-icon-png-11640343342qgstki55ep.png"
+          alt=""
+        />
+      </div>
+
+      <h1>Devon</h1>
+      <img class="app-logo" src="Images/png images/anvil-fixed.png" alt="" />
+      <h1>Forge</h1>
+
+      <div class="profile-link">
+        <img
+          class="png-logo"
+          src="Images/png images/png-clipart-login-computer-icons-avatar-icon-monochrome-black-removebg-preview.png"
+          alt=""
+        />
+      </div>
+    </header>
+    <nav>
+      <button class="nav-btns" onclick="showBuild()">Build</button>
+      <button class="nav-btns" onclick="showHome()">Home</button>
+      <button class="nav-btns" onclick="showTrain()">Train</button>
+    </nav>
+    <div class="current-page" id="current-page">
+      <div class="home-page" id="home-page">
+        <div class="welcome-div">
+          <h4>Welcome to the Devon Forge!</h4>
+          <div class="welcome-text">
+            To the left, you will be able to choose from a variety of exercises
+            and build your own workouts! To the right, you'll be able to view
+            all your workouts
+          </div>
+          <div class="get-started-div">
+            <a onclick="showBuild()">
+              <div class="get-started-btn">Get Started!</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="build-page" id="build-page">
+        <div class="filter" id="filter-div">
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="abs"
+              id="checkboxF1"
+              onclick="showAbs()"
+            />
+            <label for="checkboxF1"
+              ><img src="Images/svg files/abs-VECTOR.svg"
+            /></label>
+          </div>
+
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="biceps"
+              id="checkboxF2"
+              onclick="showBiceps()"
+            />
+            <label for="checkboxF2"
+              ><img src="Images/svg files/biceps-VECTOR.svg"
+            /></label>
+          </div>
+
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="chest"
+              id="checkboxF3"
+              onclick="showChest()"
+            />
+            <label for="checkboxF3"
+              ><img src="Images/svg files/chest-VECTOR.svg"
+            /></label>
+          </div>
+
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="shoulders"
+              id="checkboxF4"
+              onclick="showShoulders()"
+            />
+            <label for="checkboxF4"
+              ><img src="Images/svg files/shoulders-VECTOR.svg"
+            /></label>
+          </div>
+
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="triceps"
+              id="checkboxF5"
+              onclick="showTriceps()"
+            />
+            <label for="checkboxF5"
+              ><img src="Images/svg files/triceps-VECTOR.svg"
+            /></label>
+          </div>
+
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="quads"
+              id="checkboxF6"
+              onclick="showQuads()"
+            />
+            <label for="checkboxF6"
+              ><img src="Images/svg files/quads-VECTOR.svg" />
+            </label>
+          </div>
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="hamstrings"
+              id="checkboxF7"
+              onclick="showHamstrings()"
+            />
+            <label for="checkboxF7"
+              ><img src="Images/svg files/hamstrings-VECTOR.svg"
+            /></label>
+          </div>
+
+          <div class="filter-element">
+            <input
+              type="checkbox"
+              class="filter-box"
+              name="calves"
+              id="checkboxF8"
+              onclick="showCalves()"
+            />
+            <label for="checkboxF8"
+              ><img src="Images/svg files/calves-VECTOR.svg"
+            /></label>
+          </div>
+        </div>
+        <div class="workouts" id="workouts-div">
+          <div class="abs-workouts">
+            <div class="workout-card" id="abs-SIT-UP">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="sit-up"
+                id="checkboxW1"
+              />
+              <label class="workouts-label" for="checkboxW1">
+                <h3>Sit-Up</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="abs-CRUNCH">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="crunch"
+                id="checkboxW2"
+              />
+              <label class="workouts-label" for="checkboxW2">
+                <h3>Crunch</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="biceps-workouts">
+            <div class="workout-card" id="biceps-CURLS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="curls"
+                id="checkboxW3"
+              />
+              <label class="workouts-label" for="checkboxW3">
+                <h3>Curls</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="biceps-CHIN-UPS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="chin-ups"
+                id="checkboxW4"
+              />
+              <label class="workouts-label" for="checkboxW4">
+                <h3>Chin-Ups</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="chest-workouts">
+            <div class="workout-card" id="chest-BENCH-PRESS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="bench-press"
+                id="checkboxW5"
+              />
+              <label class="workouts-label" for="checkboxW5">
+                <h3>Bench Press</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="chest-CHEST-FLIES">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="chest-flies"
+                id="checkboxW6"
+              />
+              <label class="workouts-label" for="checkboxW6">
+                <h3>Chest-Flies</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="shoulder-workouts">
+            <div class="workout-card" id="shoulders-MILITARY-PRESS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="military-press"
+                id="checkboxW7"
+              />
+              <label class="workouts-label" for="checkboxW7">
+                <h3>Military-Press</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="shoulders-SHOULDER-FLIES">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="shoulder-flies"
+                id="checkboxW8"
+              />
+              <label class="workouts-label" for="checkboxW8">
+                <h3>Shoulder-Flies</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="triceps-workouts">
+            <div class="workout-card" id="triceps-MILITARY-PUSH-UPS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="military-push-ups"
+                id="checkboxW9"
+              />
+              <label class="workouts-label" for="checkboxW9">
+                <h3>Military Push-Ups</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="triceps-TRICEP-EXTENSIONS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="tricep-extensions"
+                id="checkboxW10"
+              />
+              <label class="workouts-label" for="checkboxW10">
+                <h3>Tricep Extensions</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="quads-workouts">
+            <div class="workout-card" id="quads-BACK-SQUAT">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="back-squat"
+                id="checkboxW11"
+              />
+              <label class="workouts-label" for="checkboxW11">
+                <h3>Back Squat</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="quads-BULGARIAN-SPLIT-SQUATS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="bulgarian-split-squats"
+                id="checkboxW12"
+              />
+              <label class="workouts-label" for="checkboxW12">
+                <h3>Bulgarian Split Squats</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="hamstrings-workouts">
+            <div class="workout-card" id="hamstrings-HAMSTRING-CURLS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="hamstring-curls"
+                id="checkboxW13"
+              />
+              <label class="workouts-label" for="checkboxW13">
+                <h3>Hamstring Curls</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="hamstrings-ROMANIAN-DEADLIFTS">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="romanian-deadlifts"
+                id="checkboxW14"
+              />
+              <label class="workouts-label" for="checkboxW14">
+                <h3>Romanian Deadlift</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <div class="calves-workouts">
+            <div class="workout-card" id="calves-CALVE-RAISES">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="calve-raises"
+                id="checkboxW15"
+              />
+              <label class="workouts-label" for="checkboxW15">
+                <h3>Calve Raises</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+
+            <div class="workout-card" id="calves-SEATED-CALVE-RAISES">
+              <input
+                type="checkbox"
+                class="workout-box"
+                name="seated-calve-raises"
+                id="checkboxW16"
+              />
+              <label class="workouts-label" for="checkboxW16">
+                <h3>Seated Calf Raises</h3>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                  deserunt ut laborum corporis quis dignissimos! Quaerat quod
+                  deleniti dolore id molestias maiores natus facilis!
+                </p>
+              </label>
+            </div>
+          </div>
+
+          <footer></footer>
+
+          <!-- TRYING TO INTEGRATE CART FUNTIONALITY -->
+        </div>
+      </div>
+
+      <div class="train-page" id="train-page">
+        <label for="guided-training">
+          <select
+            class="training-dropdown"
+            name="training-dropdown"
+            id="guided-training"
+          >
+            <option value="dropdown-title">Guided Training</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <label for="custom-workouts">
+          <select
+            class="custom-dropdown"
+            name="custom-dropdown"
+            id="custom-workouts"
+          >
+            <option value="dropdown-title">Custom Workout 1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <i class="person-logo"></i>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

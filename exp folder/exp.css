@@ -1,0 +1,85 @@
+body {
+  background-color: red;
+}
+
+.selection {
+  /* display: flex; */
+  background-color: aqua;
+  border: solid 0.5rem purple;
+}
+.shop-items {
+  display: flex;
+  justify-content: space-evenly;
+}
+.shop-item {
+  background-color: red;
+}
+/* CART */
+.cart {
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 4rem;
+}
+.cart-header {
+  width: 88%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background-color: blue;
+  border: solid 0.5rem cyan;
+}
+.cart-row {
+  display: flex;
+  background-color: darkgoldenrod;
+  border: solid 0.5rem yellow;
+  width: 88%;
+}
+
+.cart-column {
+  border-bottom: 0.1rem solid black;
+}
+
+.cart-item {
+  width: 33.3%;
+  background-color: greenyellow;
+}
+
+.cart-price {
+  width: 33.4%;
+  background-color: blueviolet;
+  color: #333;
+}
+
+.cart-quantity {
+  width: 33.3%;
+
+  background-color: mediumvioletred;
+}
+.cart-items {
+  min-height: 2rem;
+  width: 88%;
+  display: flex;
+  border: solid 0.5rem rgb(255, 0, 225);
+  background-color: rgb(227, 227, 227);
+}
+
+.cart-item-title {
+  color: #333;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  background-color: firebrick;
+  border: solid 0.5rem pink;
+  width: 88%;
+}
+button {
+  display: flex;
+  background-color: coral;
+  height: 4rem;
+  min-width: 4rem;
+  font-size: 2rem;
+}

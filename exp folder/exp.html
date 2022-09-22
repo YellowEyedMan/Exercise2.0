@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EXP PAGE</title>
+    <link rel="stylesheet" href="exp.css" />
+  </head>
+  <body>
+    <section class="selection">
+      <h2 class="section-header">ABS</h2>
+      <div class="shop-items">
+        <div class="shop-item">
+          <div class="shop-item-title" id="item-1-text">Album 1</div>
+          <div class="shop-item-details">
+            <span class="shop-item-price" id="item-1-price">$12.99</span>
+            <button class="btn btn-primary shop-item-button" type="button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item">
+          <span class="shop-item-title" id="item-2-text">Album 2</span>
+
+          <div class="shop-item-details">
+            <span class="shop-item-price">$14.99</span>
+            <button class="btn btn-primary shop-item-button" type="button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2 class="section-header">BICEPS</h2>
+      <div class="shop-items">
+        <div class="shop-item">
+          <span class="shop-item-title" id="item-3-text">T-Shirt</span>
+
+          <div class="shop-item-details">
+            <span class="shop-item-price">$19.99</span>
+            <button class="btn btn-primary shop-item-button" type="button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item">
+          <span class="shop-item-title" id="item-4-text">Coffee Cup</span>
+          <div class="shop-item-details">
+            <span class="shop-item-price">$6.99</span>
+            <button class="btn btn-primary shop-item-button" type="button">
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cart">
+      <h2 class="section-header cart-header">CART</h2>
+      <div class="cart-row">
+        <span class="cart-item cart-column">ITEM</span>
+        <span class="cart-price cart-column">PRICE</span>
+        <span class="cart-quantity cart-column">QUANTITY</span>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price">$0</span>
+        <button class="btn btn-primary btn-purchase" type="button">SAVE</button>
+      </div>
+    </section>
+  </body>
+  <script src="exp.js"></script>
+</html>
