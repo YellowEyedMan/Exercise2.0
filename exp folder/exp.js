@@ -1,9 +1,10 @@
-let addToCart = function () {
-  let cartItems = document.getElementById("cart-items");
-  let item = document.getElementById("item-4-text");
+let addAbs1 = function () {
+  let workout = document.getElementById("abs-1-text");
+  let cart = document.getElementById("cart-items");
+  cart.innerHTML = workout.innerHTML;
 };
-
-let textChange = function (string) {
-  x.innerHTML = string;
+let addAbs2 = function () {
+  let workout = document.getElementById("abs-2-text");
+  let cart = document.getElementById("cart-items");
+  cart.innerHTML = workout.innerHTML;
 };
-textChange("hey");
