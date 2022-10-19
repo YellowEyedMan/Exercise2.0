@@ -18,8 +18,7 @@ let showBuild = function () {
     }
   };
 
-  window.addEventListener("load", initializeWorkouts);
-
+  // Declaring arrays to hold HTML elements for each muscle group
   let chestExerciseElements = [];
   let bicepExerciseElements = [];
   let abExerciseElements = [];
@@ -29,99 +28,74 @@ let showBuild = function () {
   let hamstringsExerciseElements = [];
   let calfExerciseElements = [];
 
-
-  function initializeWorkouts() {
-    // TODO: move initialization to onLoad function
-    // TODO: add onLoad to initialize arrays of ids/elements
-    // Adding predefined arrays containing the ids of the different muscle group exercises
-    // That way, if you add more exercises, you just need to add them to the appropriate array. Then the element will automatically be added when the Id arrays are used to get the elements. 
-    const chestExerciseElementsId = ["chest-BENCH-PRESS", "chest-CHEST-FLIES"];
-    const bicepExerciseElementsId = ["biceps-CURLS", "biceps-CHIN-UPS"];
-    const abExerciseElementsId = ["abs-CRUNCH", "abs-SIT-UP"];
-    const shoulderExerciseElementsId = ["shoulders-MILITARY-PRESS", "shoulders-SHOULDER-FLIES"];
-    const tricepExerciseElementsId = ["triceps-MILITARY-PUSH-UPS", "triceps-TRICEP-EXTENSIONS"];
-    const quadExerciseElementsId = ["quads-BACK-SQUAT", "quads-BULGARIAN-SPLIT-SQUATS"];
-    const hamstringsExerciseElementsId = ["hamstrings-HAMSTRING-CURLS", "hamstrings-ROMANIAN-DEADLIFTS"];
-    const calfExerciseElementsId = ["calves-CALVE-RAISES", "calves-SEATED-CALVE-RAISES"];
-  /*** USED WITH MAP DETERMINATION ****** */
-     const chestExerciseElements = buildMuscleGroupElementsArray(chestExerciseElementsId);
-     const bicepExerciseElements = buildMuscleGroupElementsArray(bicepExerciseElementsId);
-     const abExerciseElements = buildMuscleGroupElementsArray(abExerciseElementsId);
-     const shoulderExerciseElements = buildMuscleGroupElementsArray(shoulderExerciseElementsId);
-     const tricepExerciseElements = buildMuscleGroupElementsArray(tricepExerciseElementsId);
-     const quadExerciseElements = buildMuscleGroupElementsArray(quadExerciseElementsId);
-     const hamstringsExerciseElements = buildMuscleGroupElementsArray(hamstringsExerciseElementsId);
-     const calfExerciseElements = buildMuscleGroupElementsArray(calfExerciseElementsId);
-  }
-
-  // A key value pair so that we can use the element.name value to determine which muscle group elements need to be displayed.
-  // If you ever need to add a new muscle group, we just add it here.
-  const muscleGroupsMap = new Map();
-  muscleGroupsMap.set("chest", chestExerciseElements); 
-  muscleGroupsMap.set("biceps", bicepExerciseElements); 
-  muscleGroupsMap.set("abs", abExerciseElements); 
-  muscleGroupsMap.set("shoulders", shoulderExerciseElements); 
-  muscleGroupsMap.set("triceps", tricepExerciseElements); 
-  muscleGroupsMap.set("quads", quadExerciseElements); 
-  muscleGroupsMap.set("hamstrings", hamstringsExerciseElements); 
-  muscleGroupsMap.set("calves", calfExerciseElements); 
+  // Adding predefined arrays containing the ids of the different muscle group exercises
+  // That way, if you add more exercises, you just need to add them to the appropriate array. 
+  // Then the element will automatically be added when the Id arrays are used to get the elements. 
+   const chestExerciseElementsId = ["chest-BENCH-PRESS", "chest-CHEST-FLIES"];
+   const bicepExerciseElementsId = ["biceps-CURLS", "biceps-CHIN-UPS"];
+   const abExerciseElementsId = ["abs-CRUNCH", "abs-SIT-UP"];
+   const shoulderExerciseElementsId = ["shoulders-MILITARY-PRESS", "shoulders-SHOULDER-FLIES"];
+   const tricepExerciseElementsId = ["triceps-MILITARY-PUSH-UPS", "triceps-TRICEP-EXTENSIONS"];
+   const quadExerciseElementsId = ["quads-BACK-SQUAT", "quads-BULGARIAN-SPLIT-SQUATS"];
+   const hamstringsExerciseElementsId = ["hamstrings-HAMSTRING-CURLS", "hamstrings-ROMANIAN-DEADLIFTS"];
+   const calfExerciseElementsId = ["calves-CALVE-RAISES", "calves-SEATED-CALVE-RAISES"];
   
-  // Create elementIds array, map and document.querySelector on each
-  function buildMuscleGroupElementsArray(exerciseElementsIdsArray){
-    let exerciseElementsArray = [];
-    // exerciseElementsIdsArray.forEach(id => exerciseElementsArray.push(document.getElementById(id)));
-      /***Could have used for loop instead of for each */
-      for (let i = 0; i < exerciseElementsIdsArray.length; i++) {
-        exerciseElementsArray.push(document.getElementById(exerciseElementsIdsArray[i]));
-      }
-    return exerciseElementsArray;
-    
-  }
-  
-  // Add array for exercises elements on page load or on click
-  // Set toggle based on passed element.value
-  // var toggle = if element.value === on "flex" else "none" // Check checkbox value
-  // if element.name === "chest" toggleChestExercises(exerciseElements, toggle) {exerciseElements.forEach(e => e.style.display = toggle)}// 
-  /**Generic Method To Control Show/Hide of Workouts */
+  // Function to handle any muscle group click events */
   let handleMuscleGroupClick = function (element) {
+    // String holding name of the muscle group based upon the HTML element.name property
     let selectedMuscleGroup = element.name;
     // Flag determining if exercises should be shown or hidden
     let newDisplayProperty = element.checked === true ? "flex" : "none";
-    // Populate an array containing all the elements from the selected workout
-    let selectedWorkoutElementsArray = getSelectedMuscleGroupElementsArray(selectedMuscleGroup);
-    buildMuscleGroupElementsArray(selectedWorkoutElementsArray);
-    // Pass the array of HTML elements for selected workout, along with what the display property should be.
-    toggleSelectedWorkoutDisplay(selectedWorkoutElementsArray, newDisplayProperty);
+
+    // Get DOM element Ids for selected Muscle Group
+    let selectedWorkoutElementsIdsArray = getSelectedMuscleGroupElementsArray(selectedMuscleGroup);
+    // Populate an array containing all the elements based on the DOM element Ids
+    let selectedWorkoutDomElements = buildMuscleGroupElementsArray(selectedWorkoutElementsIdsArray);
+    
+    // Pass the array of DOM elements for selected workout, along with what the display property should be and set accordingly
+    toggleSelectedWorkoutDisplay(selectedWorkoutDomElements, newDisplayProperty);
   };
 
-  // Yes, I know it's a long name, but it's descriptive.
+  // Function to get DOM element Ids for selected muscle group in order to build arrays of HTML elements
   const getSelectedMuscleGroupElementsArray = function (muscleGroup) {
     if(muscleGroup === "chest") {
-        return chestExerciseElements;
+        return chestExerciseElementsId;
     }
     if(muscleGroup === "biceps") {
-        return bicepExerciseElements;
+        return bicepExerciseElementsId;
     }
     if(muscleGroup === "abs") {
-        return abExerciseElements;
+        return abExerciseElementsId;
     }
     if(muscleGroup === "shoulders") {
-        return shoulderExerciseElements;
+        return shoulderExerciseElementsId;
     }
     if(muscleGroup === "triceps") {
-        return tricepExerciseElements;
+        return tricepExerciseElementsId;
     }
     if(muscleGroup === "quads") {
-        return quadExerciseElements;
+        return quadExerciseElementsId;
     }
     if(muscleGroup === "hamstrings") {
-        return hamstringsExerciseElements;
+        return hamstringsExerciseElementsId;
     }
     if(muscleGroup === "calves") {
-        return calfExerciseElements;
+        return calfExerciseElementsId;
     }
   }
+
+  // Create elementIds array, map and document.querySelector on each
+  function buildMuscleGroupElementsArray(exerciseElementsIdsArray){
+    let exerciseElementsArray = [];
+      /***Could have used for each loop instead of for loop */
+      for (let i = 0; i < exerciseElementsIdsArray.length; i++) {
+        exerciseElementsArray.push(document.getElementById(exerciseElementsIdsArray[i]));
+      }
+
+    return exerciseElementsArray;
+  }
   
+  // Function to hide each HTML element of the selected muscle group
   const toggleSelectedWorkoutDisplay = function (exerciseElements, newDisplayProperty) {
     // For each element in the exercise HTML elements, set its display property. Can also be done with a for loop.
     exerciseElements.forEach(element => element.style.display = newDisplayProperty);

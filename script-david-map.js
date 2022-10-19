@@ -19,7 +19,10 @@ let showBuild = function () {
   };
 
 /****DECLARING/INITIALIZING ARRAYS TO HOLD WORKOUT DATA **** */
-// That way, if you add more exercises, you just need to add them to the appropriate array. Then the element will automatically be added when the Id arrays are used to get the elements. 
+
+// Initialize arrays to hold DOM element Ids for each exercise
+// If you need to add more exercises, you just add their DOM element Id to the appropriate array.
+// Then the element will automatically be added when the Id arrays are used to get the elements.
 const chestExerciseElementsId = ["chest-BENCH-PRESS", "chest-CHEST-FLIES"];
 const bicepExerciseElementsId = ["biceps-CURLS", "biceps-CHIN-UPS"];
 const abExerciseElementsId = ["abs-CRUNCH", "abs-SIT-UP"];
@@ -28,7 +31,8 @@ const tricepExerciseElementsId = ["triceps-MILITARY-PUSH-UPS", "triceps-TRICEP-E
 const quadExerciseElementsId = ["quads-BACK-SQUAT", "quads-BULGARIAN-SPLIT-SQUATS"];
 const hamstringsExerciseElementsId = ["hamstrings-HAMSTRING-CURLS", "hamstrings-ROMANIAN-DEADLIFTS"];
 const calfExerciseElementsId = ["calves-CALVE-RAISES", "calves-SEATED-CALVE-RAISES"];
-/*** USED WITH MAP DETERMINATION ****** */
+
+// Initialize arrays to hold DOM elements based off of their Ids
 const chestExerciseElements = buildMuscleGroupElementsArray(chestExerciseElementsId);
 const bicepExerciseElements = buildMuscleGroupElementsArray(bicepExerciseElementsId);
 const abExerciseElements = buildMuscleGroupElementsArray(abExerciseElementsId);
@@ -38,8 +42,9 @@ const quadExerciseElements = buildMuscleGroupElementsArray(quadExerciseElementsI
 const hamstringsExerciseElements = buildMuscleGroupElementsArray(hamstringsExerciseElementsId);
 const calfExerciseElements = buildMuscleGroupElementsArray(calfExerciseElementsId);
 
-// A key value pair so that we can use the element.name value to determine which muscle group elements need to be displayed.
-// If you ever need to add a new muscle group, we just add it here.
+// Initialize a map(key, value pairs) to link the muscle group DOM elements to their element.name.
+// That way you can use the element.name to easily determine which elements need to be updated upon click
+// If you ever need to add a new muscle group, we just add it here. And add the new muscle groups DOM element Ids to the element Ids array
 const muscleGroupsMap = new Map();
 muscleGroupsMap.set("chest", chestExerciseElements); 
 muscleGroupsMap.set("biceps", bicepExerciseElements); 
