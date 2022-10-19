@@ -17,6 +17,62 @@ let showBuild = function () {
     otherDivs[i].style.display = "none";
   }
 };
+// TODO: add onLoad to initialize arrays of ids/elements
+// Adding predefined arrays containing the ids of the different muscle group exercises
+// That way, if you add more exercises, you just need to add them to the appropriate array. 
+// Then the element will automatically be added when the Id arrays are used to get the elements. 
+const chestExerciseElementsId = ["chest-BENCH-PRESS", "chest-CHEST-FLIES"];
+const bicepExerciseElementsId = ["biceps-CURLS", "biceps-CHIN-UPS"];
+const abExerciseElementsId = ["abs-CRUNCH", "abs-SIT-UP"];
+const shoulderExerciseElementsId = ["shoulders-MILITARY-PRESS", "shoulders-SHOULDER-FLIES"];
+const tricepExerciseElementsId = ["triceps-MILITARY-PUSH-UPS", "triceps-TRICEP-EXTENSIONS"];
+const quadExerciseElementsId = ["quads-BACK-SQUAT", "quads-BULGARIAN-SPLIT-SQUATS"];
+const hamstringsExerciseElementsId = ["hamstrings-HAMSTRING-CURLS", "hamstrings-ROMANIAN-DEADLIFTS"];
+const calfExerciseElementsId = ["calves-CALVE-RAISES", "calves-SEATED-CALVE-RAISES"];
+
+var chestExerciseElements = [];
+var bicepExerciseElements;
+var abExerciseElements;
+var shoulderExerciseElements;
+var tricepExerciseElements;
+var quadExerciseElements;
+var hamstringsExerciseElements;
+var calfExerciseElements;
+
+
+// Create elementIds array, map and document.querySelector on each
+function buildMuscleGroupElementsArray(){
+    chestExerciseElementsId.forEach(id => chestExerciseElements.push(document.getElementById(id)));
+   
+    /***Could have used for loop instead of for each */
+    // for (let i = 0; i < chestExerciseElementsId.length; i++) {
+    //   chestExerciseElements.add(document.getElementById(array[i]));
+    // }
+
+    console.log(chestExerciseElements);
+}
+
+// Add array for exercises elements on page load or on click
+// Set toggle based on passed element.value
+// var toggle = if element.value === on "flex" else "none" // Check checkbox value
+// if element.name === "chest" toggleChestExercises(exerciseElements, toggle) {exerciseElements.forEach(e => e.style.display = toggle)}// 
+/**Generic Method To Control Show/Hide of Workouts */
+let handleMuscleGroupClick = function (element) {
+  console.log("Chest value: ", element.checked);
+
+  // Flag determining if exercises should be shown
+  let newDisplayProperty = element.checked === true ? "flex" : "none";
+  
+  if(element.name === "chest") {
+    buildMuscleGroupElementsArray(chestExerciseElements, chestExerciseElementsId);
+    toggleSelectedWorkoutDisplay(chestExerciseElements, newDisplayProperty);
+  }
+};
+
+const toggleSelectedWorkoutDisplay = function (exerciseElements, newDisplayProperty) {
+  console.log("selectedElement", exerciseElements, newDisplayProperty);
+  exerciseElements.forEach(element => element.style.display = newDisplayProperty);
+}
 
 let showChest = function () {
   const chestBox = document.querySelector("#checkboxF1");
