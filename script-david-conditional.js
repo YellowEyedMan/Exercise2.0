@@ -44,14 +44,14 @@ let showBuild = function () {
     const hamstringsExerciseElementsId = ["hamstrings-HAMSTRING-CURLS", "hamstrings-ROMANIAN-DEADLIFTS"];
     const calfExerciseElementsId = ["calves-CALVE-RAISES", "calves-SEATED-CALVE-RAISES"];
   /*** USED WITH MAP DETERMINATION ****** */
-     chestExerciseElements = buildMuscleGroupElementsArray(chestExerciseElementsId);
-     bicepExerciseElements = buildMuscleGroupElementsArray(bicepExerciseElementsId);
-     abExerciseElements = buildMuscleGroupElementsArray(abExerciseElementsId);
-     shoulderExerciseElements = buildMuscleGroupElementsArray(shoulderExerciseElementsId);
-     tricepExerciseElements = buildMuscleGroupElementsArray(tricepExerciseElementsId);
-     quadExerciseElements = buildMuscleGroupElementsArray(quadExerciseElementsId);
-     hamstringsExerciseElements = buildMuscleGroupElementsArray(hamstringsExerciseElementsId);
-     calfExerciseElements = buildMuscleGroupElementsArray(calfExerciseElementsId);
+     const chestExerciseElements = buildMuscleGroupElementsArray(chestExerciseElementsId);
+     const bicepExerciseElements = buildMuscleGroupElementsArray(bicepExerciseElementsId);
+     const abExerciseElements = buildMuscleGroupElementsArray(abExerciseElementsId);
+     const shoulderExerciseElements = buildMuscleGroupElementsArray(shoulderExerciseElementsId);
+     const tricepExerciseElements = buildMuscleGroupElementsArray(tricepExerciseElementsId);
+     const quadExerciseElements = buildMuscleGroupElementsArray(quadExerciseElementsId);
+     const hamstringsExerciseElements = buildMuscleGroupElementsArray(hamstringsExerciseElementsId);
+     const calfExerciseElements = buildMuscleGroupElementsArray(calfExerciseElementsId);
   }
 
   // A key value pair so that we can use the element.name value to determine which muscle group elements need to be displayed.
@@ -65,37 +65,17 @@ let showBuild = function () {
   muscleGroupsMap.set("quads", quadExerciseElements); 
   muscleGroupsMap.set("hamstrings", hamstringsExerciseElements); 
   muscleGroupsMap.set("calves", calfExerciseElements); 
-
-    // ["biceps", bicepExerciseElements],
-    // ["abs", abExerciseElements],
-    // ["shoulders", shoulderExerciseElements],
-    // ["triceps", tricepExerciseElements],
-    // ["quads", quadExerciseElements],
-    // ["hamstrings", hamstringsExerciseElements],
-    // ["calves", calfExerciseElements]);
-  
-  // TODO: move initialization to onLoad function
-  /****USED WITH CONDITIONAL DETERMINATION */
-  // let chestExerciseElements = [];
-  // let bicepExerciseElements = [];
-  // let abExerciseElements = [];
-  // let shoulderExerciseElements = [];
-  // let tricepExerciseElements = [];
-  // let quadExerciseElements = [];
-  // let hamstringsExerciseElements = [];
-  // let calfExerciseElements = [];
   
   // Create elementIds array, map and document.querySelector on each
   function buildMuscleGroupElementsArray(exerciseElementsIdsArray){
     let exerciseElementsArray = [];
-    exerciseElementsIdsArray.forEach(id => exerciseElementsArray.push(document.getElementById(id)));
-
-    return exerciseElementsArray;
-     
+    // exerciseElementsIdsArray.forEach(id => exerciseElementsArray.push(document.getElementById(id)));
       /***Could have used for loop instead of for each */
-      // for (let i = 0; i < chestExerciseElementsId.length; i++) {
-      //   chestExerciseElements.add(document.getElementById(array[i]));
-      // }
+      for (let i = 0; i < exerciseElementsIdsArray.length; i++) {
+        exerciseElementsArray.push(document.getElementById(exerciseElementsIdsArray[i]));
+      }
+    return exerciseElementsArray;
+    
   }
   
   // Add array for exercises elements on page load or on click
@@ -112,11 +92,6 @@ let showBuild = function () {
     buildMuscleGroupElementsArray(selectedWorkoutElementsArray);
     // Pass the array of HTML elements for selected workout, along with what the display property should be.
     toggleSelectedWorkoutDisplay(selectedWorkoutElementsArray, newDisplayProperty);
-
-    /***Using a map(key value pairs) to determine selected muscle group element array so we don't have to have a bunch of conditional statements to determine which one we need****** 
-    let selectedWorkoutElementsArray = muscleGroupsMap.get(selectedMuscleGroup);
-    toggleSelectedWorkoutDisplay(selectedWorkoutElementsArray, newDisplayProperty);
-    */
   };
 
   // Yes, I know it's a long name, but it's descriptive.
@@ -151,125 +126,6 @@ let showBuild = function () {
     // For each element in the exercise HTML elements, set its display property. Can also be done with a for loop.
     exerciseElements.forEach(element => element.style.display = newDisplayProperty);
   }
-  
-//   let showChest = function () {
-//     const chestBox = document.querySelector("#checkboxF1");
-  
-//     if (chestBox.checked === true) {
-//       document.getElementById("chest-BENCH-PRESS").style.display = "flex";
-  
-//       document.getElementById("chest-CHEST-FLIES").style.display = "flex";
-//     } else {
-//       document.getElementById("chest-BENCH-PRESS").style.display = "none";
-  
-//       document.getElementById("chest-CHEST-FLIES").style.display = "none";
-//     }
-//   };
-  
-//   let showBiceps = function () {
-//     const bicepsBox = document.querySelector("#checkboxF2");
-  
-//     if (bicepsBox.checked === true) {
-//       document.getElementById("biceps-CURLS").style.display = "flex";
-  
-//       document.getElementById("biceps-CHIN-UPS").style.display = "flex";
-//     } else {
-//       document.getElementById("biceps-CURLS").style.display = "none";
-  
-//       document.getElementById("biceps-CHIN-UPS").style.display = "none";
-//     }
-//   };
-  
-//   let showAbs = function () {
-//     const absBox = document.querySelector("#checkboxF3");
-//     if (absBox.checked === true) {
-//       document.getElementById("abs-CRUNCH").style.display = "flex";
-  
-//       document.getElementById("abs-SIT-UP").style.display = "flex";
-//     } else {
-//       document.getElementById("abs-CRUNCH").style.display = "none";
-  
-//       document.getElementById("abs-SIT-UP").style.display = "none";
-//     }
-//   };
-  
-//   let showShoulders = function () {
-//     const shoulderBox = document.querySelector("#checkboxF4");
-  
-//     if (shoulderBox.checked === true) {
-//       document.getElementById("shoulders-MILITARY-PRESS").style.display = "flex";
-  
-//       document.getElementById("shoulders-SHOULDER-FLIES").style.display = "flex";
-//     } else {
-//       document.getElementById("shoulders-MILITARY-PRESS").style.display = "none";
-  
-//       document.getElementById("shoulders-SHOULDER-FLIES").style.display = "none";
-//     }
-//   };
-  
-//   let showTriceps = function () {
-//     const tricepBox = document.querySelector("#checkboxF5");
-  
-//     if (tricepBox.checked === true) {
-//       document.getElementById("triceps-MILITARY-PUSH-UPS").style.display = "flex";
-  
-//       document.getElementById("triceps-TRICEP-EXTENSIONS").style.display = "flex";
-//     } else {
-//       document.getElementById("triceps-MILITARY-PUSH-UPS").style.display = "none";
-  
-//       document.getElementById("triceps-TRICEP-EXTENSIONS").style.display = "none";
-//     }
-//   };
-  
-//   let showQuads = function () {
-//     const quadBox = document.querySelector("#checkboxF6");
-  
-//     if (quadBox.checked === true) {
-//       document.getElementById("quads-BACK-SQUAT").style.display = "flex";
-  
-//       document.getElementById("quads-BULGARIAN-SPLIT-SQUATS").style.display =
-//         "flex";
-//     } else {
-//       document.getElementById("quads-BACK-SQUAT").style.display = "none";
-  
-//       document.getElementById("quads-BULGARIAN-SPLIT-SQUATS").style.display =
-//         "none";
-//     }
-//   };
-  
-//   let showHamstrings = function () {
-//     const hamstringBox = document.querySelector("#checkboxF7");
-  
-//     if (hamstringBox.checked === true) {
-//       document.getElementById("hamstrings-HAMSTRING-CURLS").style.display =
-//         "flex";
-  
-//       document.getElementById("hamstrings-ROMANIAN-DEADLIFTS").style.display =
-//         "flex";
-//     } else {
-//       document.getElementById("hamstrings-HAMSTRING-CURLS").style.display =
-//         "none";
-  
-//       document.getElementById("hamstrings-ROMANIAN-DEADLIFTS").style.display =
-//         "none";
-//     }
-//   };
-  
-//   let showCalves = function () {
-//     const calvesBox = document.querySelector("#checkboxF8");
-  
-//     if (calvesBox.checked === true) {
-//       document.getElementById("calves-CALVE-RAISES").style.display = "flex";
-  
-//       document.getElementById("calves-SEATED-CALVE-RAISES").style.display =
-//         "flex";
-//     } else {
-//       document.getElementById("calves-CALVE-RAISES").style.display = "none";
-  
-//       document.getElementById("calves-SEATED-CALVE-RAISES").style.display =
-//         "none";
-//     }
-//   };
   
   // -- MUSCLE GROUPS
   
